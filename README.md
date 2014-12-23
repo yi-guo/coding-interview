@@ -1,4 +1,4 @@
 coding-interview
 ================
 
-A collection of coding interview questions and solutions
+A collection of coding interview questions and solutions.
