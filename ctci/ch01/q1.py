@@ -1,3 +1,7 @@
+#!/usr/bin/python
+
+import sys
+
 def hasUniqueChar1(str):
     if len(str) > 128:
         return False
@@ -19,14 +23,7 @@ def hasUniqueChar2(str):
     return True
 
 def main():
-    str1 = 'This is a test!'
-    str2 = ''
-    str3 = 'No!'
-    print hasUniqueChar1(str1)
-    print hasUniqueChar2(str1)
-    print hasUniqueChar1(str2)
-    print hasUniqueChar2(str2)
-    print hasUniqueChar1(str3)
-    print hasUniqueChar2(str3)
+    print hasUniqueChar1(sys.argv[1])
+    print hasUniqueChar2(sys.argv[1])
 
 main()
