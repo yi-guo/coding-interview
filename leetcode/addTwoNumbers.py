@@ -9,14 +9,12 @@ from cStringIO import StringIO
 
 # Define Node
 class Node:
-
     def __init__(self, val, next = None):
         self.val = val
         self.next = next
 
 # Define LinkedList
 class LinkedList:
-
     def __init__(self, head = None):
         if type(head) == int:
             self.head = Node(head)
