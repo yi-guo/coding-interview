@@ -49,5 +49,4 @@ def main():
     print twoSum1(num, target)
     print twoSum2(num, target)
 
-
 main()
