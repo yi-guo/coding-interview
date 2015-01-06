@@ -15,7 +15,6 @@
 
 # convert("PAYPALISHIRING", 3) should return "PAHNAPLSIIGYIR". 
 
-
 # Each character will be visited once ONLY, thus O(n)
 def convert(s, nRows):
     if len(s) <= nRows or nRows == 1:
