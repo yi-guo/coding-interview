@@ -9,6 +9,8 @@
 # Two pointers i and j move toward each other. If height[i] < height[j], move i one unit to the right.
 # Do so until i = j, thus O(n).
 def maxArea(height):
+    if len(height) < 2:
+        return 0
     maxArea = 0
     i, j = 0, len(height) - 1
     while i < j:
