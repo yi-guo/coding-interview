@@ -1,7 +1,6 @@
 #!/usr/bin/python
 
-# Write a function to find the longest common prefix string amongst
-# an array of strings.
+# Write a function to find the longest common prefix string amongst an array of strings.
 
 # Divide and conquer. T(n) = 2T(n/2) + O(m), thus O(mn).
 def longestCommonPrefix(strs):
