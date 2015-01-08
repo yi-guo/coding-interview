@@ -23,7 +23,7 @@ def threeSum(num):
         i = i + 1
     return threesum
 
-# Two pointers move toward each other, thus O(n)
+# Two pointers move toward each other, thus O(n).
 def twoSum(num, current, target):
     i, j = 0, len(num) - 1
     twosum, exists = list(), set()
