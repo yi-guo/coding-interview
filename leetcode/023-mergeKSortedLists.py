@@ -4,8 +4,9 @@
 
 # Analyze and describe its complexity.
 
-from LinkedList import *
+from LinkedList import Node, LinkedList, display
 
+# Divide and conquer. T(n) = 2T(n/2) + O(m), thus O(mn).
 def mergeKLists(lists):
     if not lists:
         return None
@@ -17,32 +18,26 @@ def mergeKLists(lists):
             return l2
         elif not l2:
             return l1
-        head = None
-        if l1.val < l2.val:
-            head = Node(l1.val)
-            l1 = l1.next
-        else:
-            head = Node(l2.val)
-            l2 = l2.next
-        temp = head
+        head = min(l1, l2, key=lambda n : n.val)
         while l1 and l2:
-            if l1.val < l2.val:
-                temp.next = Node(l1.val)
-                l1 = l1.next
+            if l1.val <= l2.val:
+                while l1.next and l1.next.val <= l2.val:
+                    l1 = l1.next
+                temp = l1.next
+                l1.next = l2
+                l1 = temp
             else:
-                temp.next = Node(l2.val)
-                l2 = l2.next
-            temp = temp.next
-        if l1:
-            temp.next = l1
-        elif l2:
-            temp.next = l2
+                while l2.next and l2.next.val <= l1.val:
+                    l2 = l2.next
+                temp = l2.next
+                l2.next = l1
+                l2 = temp
         return head
     else:
         q = len(lists) / 2
         return mergeKLists([mergeKLists(lists[:q]), mergeKLists(lists[q:])])
 
 def main():
-    print display(mergeKLists([LinkedList([2,3,4]).head, LinkedList([4,5,6]).head, LinkedList([7,8,9,10]).head, LinkedList([11,12]).head, LinkedList([13,14,15,16,17]).head]))
+    print display(mergeKLists([LinkedList([1,2,2]).head, LinkedList([1,1,2]).head]))
 
 main()
