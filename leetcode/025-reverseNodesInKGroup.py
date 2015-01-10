@@ -14,6 +14,7 @@
 
 from LinkedList import LinkedList, toString
 
+# Reverse every k nodes recursively. Each node is accessed once, thus O(n).
 def reverseKGroup(head, k):
     if k < 2 or not head or not head.next:
         return head
