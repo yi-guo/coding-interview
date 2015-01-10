@@ -2,13 +2,13 @@ from cStringIO import StringIO
 
 # Define Node
 class Node:
-    def __init__(self, val, next = None):
+    def __init__(self, val, next=None):
         self.val = val
         self.next = next
 
 # Define LinkedList
 class LinkedList:
-    def __init__(self, head = None):
+    def __init__(self, head=None):
         if type(head) == int:
             self.head = Node(head)
         elif type(head) == list:
@@ -42,8 +42,8 @@ class LinkedList:
         output.write(']')
         return output.getvalue()
 
-# Display list given head
-def display(head):
+# Return list as a formatted string given head
+def toString(head):
     temp = head
     output = StringIO()
     output.write('[')

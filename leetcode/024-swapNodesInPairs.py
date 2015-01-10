@@ -7,7 +7,7 @@
 # Your algorithm should use only constant space. You may not modify the values in the list.
 # Only nodes itself can be changed.
 
-from LinkedList import Node, LinkedList, display
+from LinkedList import LinkedList, toString
 
 # Recursively traverse to the end of the list and start swapping backward.
 # T(n) = T(n-2) + O(1), thus O(n).
@@ -22,6 +22,6 @@ def swapPairs(head):
         return temp
 
 def main():
-    print display(swapPairs(LinkedList([1, 2, 3, 4]).head))
+    print toString(swapPairs(LinkedList([1, 2, 3, 4]).head))
 
 main()

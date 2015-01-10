@@ -4,7 +4,7 @@
 
 # Analyze and describe its complexity.
 
-from LinkedList import Node, LinkedList, display
+from LinkedList import LinkedList, toString
 
 # Divide and conquer. T(n) = 2T(n/2) + O(m), thus O(mn).
 def mergeKLists(lists):
@@ -38,6 +38,6 @@ def mergeKLists(lists):
         return mergeKLists([mergeKLists(lists[:q]), mergeKLists(lists[q:])])
 
 def main():
-    print display(mergeKLists([LinkedList([1,2,2]).head, LinkedList([1,1,2]).head]))
+    print toString(mergeKLists([LinkedList([1,2,2]).head, LinkedList([1,1,2]).head]))
 
 main()

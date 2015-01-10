@@ -6,7 +6,7 @@
 # Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
 # Output: 7 -> 0 -> 8
 
-from LinkedList import Node, LinkedList, display
+from LinkedList import Node, LinkedList, toString
 
 # Method 1: Terminate after one traversal; O(n)
 def addTwoNumbers1(l1, l2, flag):
@@ -72,7 +72,7 @@ def add(l1, l2):
 def main():
     l1 = LinkedList([9, 9])
     l2 = LinkedList([1])
-    print display(addTwoNumbers1(l1.head, l2.head, 0))
-    print display(addTwoNumbers2(l1.head, l2.head))
+    print toString(addTwoNumbers1(l1.head, l2.head, 0))
+    print toString(addTwoNumbers2(l1.head, l2.head))
 
 main()
