@@ -12,9 +12,11 @@
 #   for k = 2, you should return: 2 -> 1 -> 4 -> 3 -> 5
 #   for k = 3, you should return: 3 -> 2 -> 1 -> 4 -> 5
 
-from LinkedList import Node, LinkedList, display
+from LinkedList import LinkedList, toString
 
 def reverseKGroup(head, k):
+    if k < 2 or not head or not head.next:
+        return head
     i, temp = 0, head
     while i < k and temp:
         i = i + 1
@@ -22,21 +24,24 @@ def reverseKGroup(head, k):
     if i < k:
         return head
     else:
-        rest = reverseKGroup(temp.next, k)
+        rest = reverseKGroup(temp, k)
+        revs = reverse(head, temp)
+        revs[1].next = rest
+        return revs[0]
 
-def reverse(head):
-    if not head.next:
-        print head.val
+# Return (head, tail) of the reversed list.
+def reverse(head, end):
+    if head.next == end:
         return (head, head)
     else:
-        rest = reverse(head.next)
+        rest = reverse(head.next, end)
         rest[1].next = head
+        head.next = None
         return (rest[0], head)
 
-
-
-
 def main():
-    print display(reverse(LinkedList([1, 2, 3, 4]).head)[0])
+    print "Given: %s" % LinkedList([1, 2, 3, 4, 5]).toString()
+    print "k = 2: %s" % toString(reverseKGroup(LinkedList([1, 2, 3, 4, 5]).head, 2))
+    print "k = 3: %s" % toString(reverseKGroup(LinkedList([1, 2, 3, 4, 5]).head, 3))
 
 main()
