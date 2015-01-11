@@ -12,6 +12,11 @@
 # 3, 2, 1 -> 1, 2, 3
 # 1, 1, 5 -> 1, 5, 1
 
+# The algorithm goes as follows.
+#   1. Find the largest index i such that A[i - 1] < A[i].
+#   2. Find the largest index j >= i such that A[j] > A[i - 1].
+#   3. Swap A[i - 1] and A[j].
+#   4. Reverse A starting at index i.
 def nextPermutation(num):
     if not num or len(num) < 2:
         return num
@@ -39,6 +44,6 @@ def nextPermutation(num):
     return num
 
 def main():
-	print nextPermutation([1, 2, 3])
+    print nextPermutation([1, 2, 3])
 
 main()
