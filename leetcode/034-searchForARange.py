@@ -8,7 +8,7 @@
 
 # For example, given [5, 7, 7, 8, 8, 10] and target value 8, return [3, 4].
 
-# A revised binary search.
+# A revised binary search, thus O(log(n)).
 def searchRange(A, target, i=None, j=None):
     # If no i and j passed, then search inside A.
     if i is None and j is None:
@@ -42,6 +42,6 @@ def searchRange(A, target, i=None, j=None):
     return [-1, -1]
 
 def main():
-    print searchRange([5, 7, 7, 8, 8, 10], 10)
+    print searchRange([5, 5, 6, 6, 6, 7, 8, 8, 10, 10, 10, 11], 6)
 
 main()
