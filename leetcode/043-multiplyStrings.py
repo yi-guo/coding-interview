@@ -4,6 +4,7 @@
 
 # Note: The numbers can be arbitrarily large and are non-negative.
 
+# Digit by digit multiplication.
 def multiply(num1, num2):
     if num1 == '0' or num2 == '0':
         return '0'
@@ -31,6 +32,5 @@ def multiply(num1, num2):
 
 def main():
     print multiply('999', '999')
-
 
 main()
