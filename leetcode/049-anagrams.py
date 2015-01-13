@@ -22,6 +22,6 @@ def anagrams(strs):
     return anagrams
 
 def main():
-    print anagrams(["cab","pug","pei","nay","ron","rae","ems","ida","mes"])
+    print anagrams(["cab", "pug", "pei", "nay", "ron", "rae", "ems", "ida", "mes"])
 
 main()
