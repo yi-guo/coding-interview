@@ -11,8 +11,6 @@
 #   3. in the array crossing the midpoint;
 # T(n) = 2T(n/2) + O(n), thus O(nlog(n)).
 def maxSubArray1(A, i=None, j=None):
-    if not A:
-        return 0
     if i is None and j is None:
         i, j = 0, len(A) - 1
     if j - i == 0:
@@ -38,11 +36,9 @@ def maxSubArray1(A, i=None, j=None):
 #   currMax: maximum sum ending at index i
 #   maxSoFar: maximum sum achieved so far
 def maxSubArray2(A):
-    if not A:
-        return 0
     currMax = maxSoFar = A[0]
-    for i in range(1, len(A)):
-        currMax = max(A[i], currMax + A[i])
+    for n in A[1:]:
+        currMax = max(n, currMax + n)
         maxSoFar = max(currMax, maxSoFar)
     return maxSoFar
 
