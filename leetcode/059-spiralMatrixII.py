@@ -30,15 +30,12 @@ def generateMatrix(n, layer=0):
         num = matrix[layer + 1][layer + 1] - 1
         for i in range(layer + 1, n - layer):
             matrix[i][layer] = num
+            matrix[n - layer - 1][i] = num - (n - layer * 2) + 1
             num = num - 1
-        for i in range(layer + 1, n - layer):
-            matrix[n - layer - 1][i] = num
-            num = num - 1
+        num = matrix[n - layer - 1][n - layer - 1] - 1
         for i in range(n - layer - 2, layer - 1, -1):
             matrix[i][n - layer - 1] = num
-            num = num - 1
-        for i in range(n - layer - 2, layer - 1, -1):
-            matrix[layer][i] = num
+            matrix[layer][i] = num - (n - layer * 2) + 1
             num = num - 1
         return matrix
 
