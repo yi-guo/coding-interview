@@ -18,8 +18,8 @@
 
 # Return the formatted lines as:
 #   ["This    is    an",
-#	 "example  of text",
-#	 "justification.  "]
+#    "example  of text",
+#    "justification.  "]
 
 # Note: Each word is guaranteed not to exceed L in length.
 
