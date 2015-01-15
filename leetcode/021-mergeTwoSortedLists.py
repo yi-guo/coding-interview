@@ -31,4 +31,4 @@ def mergeTwoLists(l1, l2):
         temp.next = l2
     return head
 
-# Mah, do I need test cases for this easy problem?
+# Mah, do I need test cases for such an easy problem?
