@@ -6,7 +6,7 @@
 
 # Note: m, n satisfy the following condition: 1 <= m <= n <= length of list.
 
-from LinkedList import LinkedList, toString
+from LinkedList import LinkedList
 
 # A recursive approach. Strictly one pass, thus O(n).
 def reverseBetween(head, m, n):
@@ -34,6 +34,6 @@ def reverse(head, m, n, i):
 
 def main():
     lst = LinkedList([1, 2, 3, 4, 5])
-    print toString(reverseBetween(lst.head, 2, 3))
+    print reverseBetween(lst.head, 2, 3)
 
 main()

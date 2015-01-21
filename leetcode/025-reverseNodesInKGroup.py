@@ -12,7 +12,7 @@
 #   for k = 2, you should return: 2 -> 1 -> 4 -> 3 -> 5
 #   for k = 3, you should return: 3 -> 2 -> 1 -> 4 -> 5
 
-from LinkedList import LinkedList, toString
+from LinkedList import LinkedList
 
 # Reverse every k nodes recursively. Each node is accessed once, thus O(n).
 def reverseKGroup(head, k):
@@ -41,8 +41,8 @@ def reverse(head, end):
         return (rest[0], head)
 
 def main():
-    print "Given: %s" % LinkedList([1, 2, 3, 4, 5]).toString()
-    print "k = 2: %s" % toString(reverseKGroup(LinkedList([1, 2, 3, 4, 5]).head, 2))
-    print "k = 3: %s" % toString(reverseKGroup(LinkedList([1, 2, 3, 4, 5]).head, 3))
+    print "Given: %s" % LinkedList([1, 2, 3, 4, 5])
+    print "k = 2: %s" % reverseKGroup(LinkedList([1, 2, 3, 4, 5]).head, 2)
+    print "k = 3: %s" % reverseKGroup(LinkedList([1, 2, 3, 4, 5]).head, 3)
 
 main()

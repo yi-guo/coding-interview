@@ -4,7 +4,7 @@
 
 # For example, given 1 -> 2 -> 3 -> 4 -> 5 -> NULL and k = 2, return 4 -> 5 -> 1 -> 2 -> 3 -> NULL.
 
-from LinkedList import LinkedList, toString
+from LinkedList import LinkedList
 
 # Two pointers with the seconding one moving when the leading one is k nodes ahead.
 def rotateRight(head, k):
@@ -29,6 +29,6 @@ def rotateRight(head, k):
 
 def main():
     lst = LinkedList([1, 2, 3, 4, 5])
-    print toString(rotateRight(lst.head, 6))
+    print rotateRight(lst.head, 6)
 
 main()

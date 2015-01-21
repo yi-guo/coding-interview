@@ -7,7 +7,7 @@
 
 # Note: Given n will always be valid, try to do this in one pass.
 
-from LinkedList import Node, LinkedList, display
+from LinkedList import LinkedList
 
 # Two points move ahead. The second one starts moving when the first one is at the nth position. O(n).
 def removeNthFromEnd(head, n):
@@ -34,7 +34,7 @@ def removeNthFromEnd(head, n):
 
 def main():
     lst = LinkedList([1, 2, 3, 4, 5])
-    print lst.toString()
-    print display(removeNthFromEnd(lst.head, 2))
+    print lst
+    print removeNthFromEnd(lst.head, 2)
 
 main()

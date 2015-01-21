@@ -6,7 +6,7 @@
 # Given 1 -> 1 -> 2, return 1 -> 2.
 # Given 1 -> 1 -> 2 -> 3 -> 3, return 1 -> 2 -> 3.
 
-from LinkedList import LinkedList, toString
+from LinkedList import LinkedList
 
 # Traverse the list and manipulate the pointer to avoid duplicates. One pass, thus O(n).
 def deleteDuplicates(head):
@@ -26,6 +26,6 @@ def deleteDuplicates(head):
 def main():
     lst = [1, 1, 2, 3, 3]
     print "Before: %s" % lst
-    print " After: %s" % toString(deleteDuplicates(LinkedList(lst).head))
+    print " After: %s" % deleteDuplicates(LinkedList(lst).head)
 
 main()
