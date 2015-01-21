@@ -51,7 +51,7 @@ class LinkedList:
         return self.head is None
 
 # A show case.
-def main():
-    print LinkedList([1, 2, 3, 4, 5])
+# def main():
+#     print LinkedList([1, 2, 3, 4, 5])
 
-main()
+# main()
