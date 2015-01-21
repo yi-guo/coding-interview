@@ -79,7 +79,7 @@ class Tree:
         return str(self.root)
 
 # A show case.
-def main():
-    print Tree([1, 2, 3, 4, 5, 6, 7])
+# def main():
+#     print Tree([1, 2, 3, 4, 5, 6, 7])
 
 # main()
