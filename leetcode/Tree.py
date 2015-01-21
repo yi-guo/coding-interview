@@ -82,4 +82,4 @@ class Tree:
 def main():
     print Tree([1, 2, 3, 4, 5, 6, 7])
 
-main()
+# main()
