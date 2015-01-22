@@ -4,8 +4,8 @@
 
 #   struct TreeLinkNode {
 #       TreeLinkNode *left;
-#   	TreeLinkNode *right;
-#   	TreeLinkNode *next;
+#       TreeLinkNode *right;
+#       TreeLinkNode *next;
 #   }
 
 # Populate each next pointer to point to its next right node. If there is no next right node, the next pointer
@@ -16,7 +16,7 @@
 # Note:
 #   1. You may only use constant extra space.
 #   2. You may assume that it is a perfect binary tree (i.e., all leaves are at the same level,
-#	   and every parent has two children).
+#      and every parent has two children).
 
 # For example, given the following perfect binary tree,
 #         1
