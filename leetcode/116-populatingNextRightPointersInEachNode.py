@@ -36,12 +36,19 @@
 def connect(root):
     if not root: return None
     temp = root
-    while temp.left:
-        curr = temp
-        while curr:
-            curr.left.next = curr.right
-            if curr.next:
-                curr.right.next = curr.next.left
-            curr = curr.next
-        temp = temp.left
+    while temp:
+        if temp.left or temp.right:
+            curr = temp
+            prev = curr.left if curr.left else curr.right
+            while curr:
+                if curr.left and curr.left != prev:
+                    prev.next = curr.left
+                    prev = prev.next
+                if curr.right and curr.right != prev:
+                    prev.next = curr.right
+                    prev = prev.next
+                curr = curr.next
+            temp = temp.left if temp.left else temp.right
+        else:
+            temp = temp.next
     return root
