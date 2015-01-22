@@ -37,19 +37,15 @@ from Tree import Tree
 # Level-order traversal and manipulate the next pointer to its right except the last one in current level.
 def connect(root):
     if not root: return None
-    queue = [root]
-    while queue:
-        length = len(queue)
-        for i in range(length):
-            if i == length - 1:
-                queue[i].next = None
-            else:
-                queue[i].next = queue[i + 1]
-            if queue[i].left:
-                queue.append(queue[i].left)
-            if queue[i].right:
-                queue.append(queue[i].right)
-        queue = queue[length:]
+    temp = root
+    while temp.left:
+        curr = temp
+        while curr:
+            curr.left.next = curr.right
+            if curr.next:
+                curr.right.next = curr.next.left
+            curr = next.next
+        temp = temp.left
     return root
 
 def main():
