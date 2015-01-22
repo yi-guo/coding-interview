@@ -32,28 +32,16 @@
 #     / \  / \
 #    4->5->6->7 -> NULL
 
-from Tree import Tree
-
-# Level-order traversal and manipulate the next pointer to its right except the last one in current level.
+# Manipulate the next pointer level by level.
 def connect(root):
     if not root: return None
-    queue = [root]
-    while queue:
-        length = len(queue)
-        for i in range(length):
-            if i == length - 1:
-                queue[i].next = None
-            else:
-                queue[i].next = queue[i + 1]
-            if queue[i].left:
-                queue.append(queue[i].left)
-            if queue[i].right:
-                queue.append(queue[i].right)
-        queue = queue[length:]
+    temp = root
+    while temp.left:
+        curr = temp
+        while curr:
+            curr.left.next = curr.right
+            if curr.next:
+                curr.right.next = curr.next.left
+            curr = curr.next
+        temp = temp.left
     return root
-
-def main():
-    tree = Tree([1, 2, 3, 4, 5, 6, 7])
-    print connect(tree.root)
-
-main()
