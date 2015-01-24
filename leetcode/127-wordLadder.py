@@ -41,7 +41,7 @@ def ladderLength(start, end, dict):
     return 0
 
 def main():
-    dict = ["hot", "dot", "dog", "lot", "log"]
+    dict = set(['hot', 'dot', 'dog', 'lot', 'log'])
     print ladderLength('hit', 'cog', dict)
 
 main()
