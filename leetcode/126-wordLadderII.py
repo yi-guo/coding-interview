@@ -18,32 +18,41 @@
 #   1. All words have the same length.
 #   2. All words contain only lowercase alphabetic characters.
 
-def findLadders(start, end, dict):
-    if start == end: return [[start]]
-    flag = False
-    paths, queue, visited = [], [[start]], set([start])
-    while queue:
-        length = len(queue)
-        print length, queue
-        for i in range(length):
-            if queue[i][-1] == end:
-                flag = True
-                paths.append(queue[i])
-            for j in range(len(queue[i][-1])):
-                word = list(queue[i][-1])
-                for k in map(chr, range(97, 123)):
-                    print j, word
-                    word[j] = k
-                    next = ''.join(word)
-                    if next in dict or next == end:
-                        queue.append(queue[i] + [next])
-        if flag: return paths
-        queue = queue[length:]
-    return paths
+import collections
 
+# Same approach as "Word Ladder" except using SET to speed up and DICT to store parent state(s).
+def findLadders(start, end, dict):
+    dict.add(end)
+    paths, currLevel = {}, {start}
+    while currLevel and end not in paths:
+        nextLevel = set()
+        visited = collections.defaultdict(set)
+        for word in currLevel:
+            for i in range(len(word)):
+                temp = list(word)
+                for j in map(chr, range(97, 123)):
+                    temp[i] = j
+                    next = ''.join(temp)
+                    if next in dict and next not in paths:
+                        nextLevel.add(next)
+                        visited[next].add(word)
+        paths.update(visited)
+        currLevel = nextLevel
+    return getPaths(start, end, paths) if end in paths else list()
+
+def getPaths(start, end, paths):
+    ret = [[end]]
+    while ret[0][0] != start:
+        length = len(ret)
+        for i in range(length):
+            path = ret[i]
+            for prev in paths[path[0]]:
+                ret.append([prev] + path)
+        ret = ret[length:]
+    return ret
 
 def main():
-    dict = ["hot", "dog"]
-    print findLadders('hot', 'dog', dict)
+    dict = set(["hot", "dot", "dog", "lot", "log"])
+    print findLadders('hit', 'cog', dict)
 
 main()
