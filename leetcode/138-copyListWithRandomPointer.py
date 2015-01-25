@@ -5,7 +5,7 @@
 
 # Return a deep copy of the list.
 
-# Hashmap.
+# Hashmap. One pass, thus O(n).
 def copyRandomList(head):
     if not head: return None
     temp, clone = head, RandomListNode(head.label)
