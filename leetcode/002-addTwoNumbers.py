@@ -69,6 +69,24 @@ def add(l1, l2):
     else:
         return None
 
+# Method 3: Iterative one pass.
+def addTwoNumbers(l1, l2):
+    head = Node(0)
+    carry, temp = 0, head
+    while l1 or l2 or carry:
+        if l1:
+            temp.val += l1.val
+            l1 = l1.next
+        if l2:
+            temp.val += l2.val
+            l2 = l2.next
+        carry = temp.val / 10
+        temp.val = temp.val % 10
+        if l1 or l2 or carry:
+            temp.next = Node(carry)
+            temp = temp.next
+    return head
+
 def main():
     l1 = LinkedList([9, 9])
     l2 = LinkedList([1])
