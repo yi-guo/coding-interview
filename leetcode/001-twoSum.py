@@ -29,21 +29,13 @@ def twoSum1(num, target):
                     return (min(x, k) + 1, max(x, k) + 1)
     return None
 
-# Hash table mapping numbers to their indices; O(n)
+# Hash table look-up. One pass, O(n).
 def twoSum2(num, target):
     nums = dict()
     for i, n in enumerate(num):
-        if nums.has_key(n):
-            nums[n].append(i + 1)
-        else:
-            nums[n] = [i + 1]
-    for key, value in nums.iteritems():
-        if key == target - key and len(value) > 1:
-            return (min(value), max(value))
-        elif key != target - key and nums.has_key(target - key):
-            i, j = value[0], nums[target - key][0]
-            return (min(i, j), max(i, j))
-    return None
+        if target - n in nums and i != nums[target - n]:
+            return nums[target - n] + 1, i + 1
+        nums[n] = i
 
 def main():
     num, target = [2, 7, 2, 11, 15], 4
