@@ -53,8 +53,6 @@ def atoi2(str):
         i = i + 1
     return max(min(num * neg, 2147483647), -2147483648)
 
-
-
 def main():
     print atoi1(' \t -003073-\nab42')
     print atoi1(' \t -003073-\nab42')
