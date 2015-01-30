@@ -21,9 +21,11 @@
 #     / \    \
 #    4-> 5 -> 7 -> NULL
 
-# A revised verion of the solution to problem "Populating Next Right Pointers in Each Node".
+
+# A revised version of the solution to problem "Populating Next Right Pointers in Each Node".
 def connect(root):
-    if not root: return None
+    if not root:
+        return None
     temp = root
     while temp:
         if temp.left or temp.right:
