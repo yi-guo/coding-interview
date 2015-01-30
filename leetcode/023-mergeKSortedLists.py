@@ -4,40 +4,51 @@
 
 # Analyze and describe its complexity.
 
-from LinkedList import LinkedList
+import heapq
+from LinkedList import Node, LinkedList
+
 
 # Divide and conquer. T(n) = 2T(n/2) + O(m), thus O(mn).
-def mergeKLists(lists):
+def mergeKLists1(lists):
     if not lists:
         return None
     elif len(lists) == 1:
         return lists[0]
     elif len(lists) == 2:
+        head = temp = Node(0)
         l1, l2 = lists[0], lists[1]
-        if not l1:
-            return l2
-        elif not l2:
-            return l1
-        head = min(l1, l2, key=lambda n : n.val)
         while l1 and l2:
-            if l1.val <= l2.val:
-                while l1.next and l1.next.val <= l2.val:
-                    l1 = l1.next
-                temp = l1.next
-                l1.next = l2
-                l1 = temp
+            if l1.val < l2.val:
+                temp.next = l1
+                l1 = l1.next
             else:
-                while l2.next and l2.next.val <= l1.val:
-                    l2 = l2.next
-                temp = l2.next
-                l2.next = l1
-                l2 = temp
-        return head
+                temp.next = l2
+                l2 = l2.next
+            temp = temp.next
+        if l1:
+            temp.next = l1
+        if l2:
+            temp.next = l2
+        return head.next
     else:
-        q = len(lists) / 2
-        return mergeKLists([mergeKLists(lists[:q]), mergeKLists(lists[q:])])
+        length = len(lists) / 2
+        return mergeKLists([mergeKLists(lists[:length]), mergeKLists(lists[length:])])
+
+
+# Priority queue.
+def mergeKLists2(lists):
+    head = temp = Node(0)
+    lists = [(node.val, node) for node in lists if node]
+    heapq.heapify(lists)
+    while lists:
+        temp.next = heapq.heappop(lists)[1]
+        temp = temp.next
+        if temp.next:
+            heapq.heappush(lists, (temp.next.val, temp.next))
+    return head.next
+
 
 def main():
-    print mergeKLists([LinkedList([1, 2, 2]).head, LinkedList([1, 1, 2]).head])
+    print mergeKLists2([LinkedList([1, 2, 2]).head, LinkedList([1, 1, 2]).head])
 
 main()
