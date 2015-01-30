@@ -23,7 +23,7 @@ def generateParenthesis(n):
             existed.add(new)
         for i in xrange(len(curr)):
             if curr[i] == '(':
-                new = curr[:i+1] + '()' + curr[i+1:]
+                new = curr[:i + 1] + '()' + curr[i + 1:]
                 if new not in existed:
                     queue.append(new)
                     existed.add(new)
