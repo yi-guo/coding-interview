@@ -12,7 +12,7 @@ def longestPalindromicSubstring(s):
         p1, p2 = longestPalindrom(s, i - 1, i + 1), str()
         if i < len(s) - 1 and s[i] == s[i + 1]:
             p2 = longestPalindrom(s, i - 1, i + 2)
-        longest = max(p1, p2, longest, key = len)
+        longest = max(p1, p2, longest, key=len)
     return longest
 
 # Given a character, keep expanding until its left and right are different.
