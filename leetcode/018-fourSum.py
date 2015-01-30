@@ -10,58 +10,47 @@
 # For example, given array S = {1, 0, -1, 0, -2, 2} and target = 0, a solution set is
 # {(-1, 0, 0, 1), (-2, -1, 1, 2), (-2, 0, 0, 2)}.
 
+import collections
+
+
 # For every possible pair, do twoSum, thus O(n^2) for finding all possible pairs plus O(n/2) for
 # running twoSum amongst the pairs, which leads to O(n^2) overall.
 def fourSum(num, target):
-    if len(num) < 4:
+    if not num or len(num) < 4:
         return list()
-    elif len(num) == 4 and sum(num) == target:
-        return [sorted(num)]
-    num.sort()
-    nums, foursum = dict(), list()
-    for i in range(len(num)):
-        for j in range(i + 1, len(num)):
-            key = num[i] + num[j]
-            if key in nums:
-                nums[key].append([num[i], num[j]])
-            else:
-                nums[key] = [[num[i], num[j]]]
-    twosum_num = list()
-    for key, value in nums.iteritems():
-        twosum_num.extend([key for i in range(len(value))])
-    twosum = twoSum(sorted(twosum_num), target)
-    for pair in twosum:
-        for p1 in nums[pair[0]]:
-            for p2 in nums[pair[1]]:
-                lst = list(p1)
-                lst.extend(p2)
-                lst.sort()
-                if lst not in foursum and not conflict(num, lst):
-                    foursum.append(lst)
-    return foursum
+    pairs, foursums = collections.defaultdict(list), set()
+    for i in xrange(len(num)):
+        for j in xrange(i + 1, len(num)):
+            pairs[num[i] + num[j]].append((i, j))
+    newNum = list()
+    for key, value in pairs.iteritems():
+        newNum.extend([key] * len(value))
+    twosums = twoSum(sorted(newNum), target)
+    for twosum in twosums:
+        for p1 in pairs[twosum[0]]:
+            for p2 in pairs[twosum[1]]:
+                merged = set(p1 + p2)
+                if len(merged) < 4:
+                    continue
+                foursums.add(tuple(sorted([num[i] for i in merged])))
+    return [list(quadruplet) for quadruplet in foursums]
+
 
 # Two pointers as always, thus O(n).
 def twoSum(num, target):
-    twosum = list()
+    twosums = set()
     i, j = 0, len(num) - 1
     while i < j:
-        sum = num[i] + num[j]
-        if sum < target:
-            i = i + 1
-        elif sum > target:
-            j = j - 1
+        if num[i] + num[j] < target:
+            i += 1
+        elif num[i] + num[j] > target:
+            j -= 1
         else:
-            twosum.append((num[i], num[j]))
-            i = i + 1
-            j = j - 1
-    return twosum
+            twosums.add((num[i], num[j]))
+            i += 1
+            j -= 1
+    return twosums
 
-# Check if the quadruplet conflicts the given array by having a number more times than it is given.
-def conflict(num, lst):
-    for n in lst:
-        if lst.count(n) > num.count(n):
-            return True
-    return False
 
 def main():
     print fourSum([1, 0, -1, 0, -2, 2], 0)
