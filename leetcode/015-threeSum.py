@@ -12,42 +12,35 @@
 # For every number that has not been visited, do twoSum, thus O(n) * O(n) = O(n^2).
 def threeSum(num):
     num.sort()
-    i, threesum = 0, list()
-    while i < len(num):
-        if i != 0 and num[i] == num[i - 1]:
-            i = i + 1
-            continue
-        twosum = twoSum(num, i, 0 - num[i])
+    threesum = set()
+    for i, n in enumerate(num):
+        twosum = twoSum(num, i, 0 - n)
         if twosum:
-            threesum.extend(twosum)
-        i = i + 1
-    return threesum
+            for res in twosum:
+                threesum.add(tuple(sorted((res[0], res[1], n))))
+    return [list(triplet) for triplet in threesum]
 
-# Two pointers move toward each other, thus O(n).
-def twoSum(num, current, target):
+
+def twoSum(num, curr, target):
+    res = list()
     i, j = 0, len(num) - 1
-    twosum, exists = list(), set()
     while i < j:
-        if i == current:
+        if i == curr:
             i = i + 1
             continue
-        elif j == current:
+        elif j == curr:
             j = j - 1
             continue
-        sum = num[i] + num[j]
-        if sum < target:
+        twosum = num[i] + num[j]
+        if twosum < target:
             i = i + 1
-        elif sum > target:
+        elif twosum > target:
             j = j - 1
         else:
-            # First constraint removes duplicates like (-4, 2, 2) when current is 2
-            # Second constraint removes duplicates like (-4, 2, 2) when current is -4
-            if num[current] <= num[i] and num[i] not in exists:
-                exists.add(num[i])
-                twosum.append([num[current], num[i], num[j]])              
+            res.append([num[i], num[j]])
             i = i + 1
             j = j - 1
-    return twosum
+    return res
 
 def main():
     print threeSum([-4, -2, -2, -2, 0, 1, 2, 2, 2, 3, 3, 4, 4, 6, 6])
