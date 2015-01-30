@@ -6,27 +6,18 @@
 # The brackets must close in the correct order. "()" and "()[]{}" are all valid,
 # but "(]" and "([)]" are not.
 
+
 # Use stack to check validity, thus O(n).
 def isValid(s):
-    if not s:
-        return True
-    elif len(s) % 2 != 0:
-        return False
-    pairs = {'(' : ')', '[' : ']', '{' : '}'}
-    i, stack = 0, list()
-    while i < len(s):
-        if s[i] in pairs:
-            stack.append(s[i])
+    stack = list()
+    parentheses = {')': '(', ']': '[', '}': '{'}
+    for c in s:
+        if c not in parentheses:
+            stack.append(c)
         else:
-            # Handle cases like ')' and '([)'
-            if not stack or s[i] != pairs[stack.pop()]:
+            if not stack or stack.pop() != parentheses[c]:
                 return False
-        i = i + 1
-    # Handle cases like '(('
-    if stack:
-        return False
-    else:
-        return True
+    return False if stack else True
 
 def main():
     print isValid('()[]{}')
