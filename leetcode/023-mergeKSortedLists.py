@@ -4,8 +4,9 @@
 
 # Analyze and describe its complexity.
 
+
 import heapq
-from LinkedList import Node, LinkedList
+from LinkedList import ListNode, LinkedList
 
 
 # Divide and conquer. T(n) = 2T(n/2) + O(m), thus O(mn).
@@ -15,7 +16,7 @@ def mergeKLists1(lists):
     elif len(lists) == 1:
         return lists[0]
     elif len(lists) == 2:
-        head = temp = Node(0)
+        head = temp = ListNode(0)
         l1, l2 = lists[0], lists[1]
         while l1 and l2:
             if l1.val < l2.val:
@@ -32,12 +33,12 @@ def mergeKLists1(lists):
         return head.next
     else:
         length = len(lists) / 2
-        return mergeKLists([mergeKLists(lists[:length]), mergeKLists(lists[length:])])
+        return mergeKLists1([mergeKLists1(lists[:length]), mergeKLists1(lists[length:])])
 
 
 # Priority queue.
 def mergeKLists2(lists):
-    head = temp = Node(0)
+    head = temp = ListNode(0)
     lists = [(node.val, node) for node in lists if node]
     heapq.heapify(lists)
     while lists:
@@ -50,5 +51,6 @@ def mergeKLists2(lists):
 
 def main():
     print mergeKLists2([LinkedList([1, 2, 2]).head, LinkedList([1, 1, 2]).head])
+
 
 main()

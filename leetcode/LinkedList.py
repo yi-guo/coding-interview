@@ -1,7 +1,8 @@
 #!/usr/bin/python
 
+
 # Define Node
-class Node:
+class ListNode:
 
     # To declare a linked list node, issue N = Node(1).
     def __init__(self, val, next=None):
@@ -26,7 +27,7 @@ class LinkedList:
     #   3. L = LinkedList(), which creates an empty linked list.
     def __init__(self, head=None):
         if type(head) == int:
-            self.head = Node(head)
+            self.head = ListNode(head)
         elif type(head) == list:
             self.head = None
             for val in head:
@@ -37,21 +38,3 @@ class LinkedList:
     # Define the string representation of a linked list.
     def __repr__(self):
         return str(self.head)
-
-    def insert(self, val):
-        if self.isEmpty():
-            self.head = Node(val)
-        else:
-            temp = self.head
-            while temp.next is not None:
-                temp = temp.next
-            temp.next = Node(val)
-
-    def isEmpty(self):
-        return self.head is None
-
-# A show case.
-# def main():
-#     print LinkedList([1, 2, 3, 4, 5])
-
-# main()

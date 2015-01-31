@@ -6,72 +6,43 @@
 # Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
 # Output: 7 -> 0 -> 8
 
-from LinkedList import Node, LinkedList, toString
 
-# Method 1: Terminate after one traversal; O(n)
-def addTwoNumbers1(l1, l2, flag):
+from LinkedList import ListNode, LinkedList
+
+
+# Method 1: Terminate after one traversal. O(n).
+def addTwoNumbers1(l1, l2, flag=0):
     if l1 and l2:
-        l = Node(l1.val + l2.val + flag)
+        l = ListNode(l1.val + l2.val + flag)
         if l.val > 9:
-            l.val = l.val - 10
+            l.val -= 10
             l.next = addTwoNumbers1(l1.next, l2.next, 1)
         else:
             l.next = addTwoNumbers1(l1.next, l2.next, 0)
         return l
     elif l1 and not l2:
-        l = Node(l1.val + flag)
+        l = ListNode(l1.val + flag)
         if l.val > 9:
-            l.val = l.val - 10
+            l.val -= 10
             l.next = addTwoNumbers1(l1.next, l2, 1)
         else:
             l.next = addTwoNumbers1(l1.next, l2, 0)
         return l
     elif not l1 and l2:
-        l = Node(l2.val + flag)
+        l = ListNode(l2.val + flag)
         if l.val > 9:
-            l.val = l.val - 10
+            l.val -= 10
             l.next = addTwoNumbers1(l1, l2.next, 1)
         else:
             l.next = addTwoNumbers1(l1, l2.next, 0)
         return l
     else:
-        if flag:
-            return Node(flag)
-        else:
-            return None
+        return ListNode(flag) if flag else None
 
-# Method 2: Post-processing after one traversal; O(2n)
+
+# Method 2: Iterative one pass.
 def addTwoNumbers2(l1, l2):
-    l, flag = add(l1, l2), 0
-    temp = l
-    while temp:
-        temp.val = temp.val + flag
-        if temp.val > 9:
-            temp.val = temp.val - 10
-            flag = 1
-        else:
-            flag = 0
-        if not temp.next and flag:
-            temp.next = Node(flag)
-            break
-        temp = temp.next
-    return l
-
-def add(l1, l2):
-    if l1 and l2:
-        l = Node(l1.val + l2.val)
-        l.next = add(l1.next, l2.next)
-        return l
-    elif l1 and not l2:
-        return l1
-    elif not l1 and l2:
-        return l2
-    else:
-        return None
-
-# Method 3: Iterative one pass.
-def addTwoNumbers(l1, l2):
-    head = Node(0)
+    head = ListNode(0)
     carry, temp = 0, head
     while l1 or l2 or carry:
         if l1:
@@ -81,16 +52,18 @@ def addTwoNumbers(l1, l2):
             temp.val += l2.val
             l2 = l2.next
         carry = temp.val / 10
-        temp.val = temp.val % 10
+        temp.val %= 10
         if l1 or l2 or carry:
-            temp.next = Node(carry)
+            temp.next = ListNode(carry)
             temp = temp.next
     return head
+
 
 def main():
     l1 = LinkedList([9, 9])
     l2 = LinkedList([1])
-    print toString(addTwoNumbers1(l1.head, l2.head, 0))
-    print toString(addTwoNumbers2(l1.head, l2.head))
+    print addTwoNumbers1(l1.head, l2.head)
+    print addTwoNumbers2(l1.head, l2.head)
+
 
 main()
