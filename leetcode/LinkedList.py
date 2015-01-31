@@ -5,9 +5,9 @@
 class ListNode:
 
     # To declare a linked list node, issue N = Node(1).
-    def __init__(self, val, next=None):
+    def __init__(self, val):
         self.val = val
-        self.next = next
+        self.next = None
 
     # Define the string representation of a linked list with this node as head.
     def __repr__(self):
@@ -38,3 +38,12 @@ class LinkedList:
     # Define the string representation of a linked list.
     def __repr__(self):
         return str(self.head)
+
+    def insert(self, val):
+        if not self.head:
+            self.head = ListNode(val)
+        else:
+            temp = self.head
+            while temp.next is not None:
+                temp = temp.next
+            temp.next = ListNode(val)
