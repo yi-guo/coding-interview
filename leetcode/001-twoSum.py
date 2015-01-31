@@ -11,28 +11,8 @@
 # Output: (1, 2)
 
 
-# Sort the array and conduct binary search; O(n log(n))
-def twoSum1(num, target):
-    nums = sorted(num)
-    i, j = 0, len(num) - 1
-    while i < len(num) and j >= 0:
-        sum = nums[i] + nums[j]
-        if sum < target:
-            i = i + 1
-        elif sum > target:
-            j = j - 1
-        else:
-            x = -1
-            for k, n in enumerate(num):
-                if x == -1 and n == nums[i]:
-                    x = k
-                if x != k and n == nums[j]:
-                    return min(x, k) + 1, max(x, k) + 1
-    return None
-
-
 # Hash table look-up. One pass, O(n).
-def twoSum2(num, target):
+def twoSum(num, target):
     nums = dict()
     for i, n in enumerate(num):
         if target - n in nums and i != nums[target - n]:
@@ -42,7 +22,7 @@ def twoSum2(num, target):
 
 def main():
     num, target = [2, 7, 2, 11, 15], 4
-    print twoSum1(num, target)
-    print twoSum2(num, target)
+    print twoSum(num, target)
+
 
 main()
