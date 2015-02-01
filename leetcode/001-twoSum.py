@@ -10,7 +10,6 @@
 # Input: num = [2, 7, 11, 15], target = 9
 # Output: (1, 2)
 
-
 # Hash table look-up. One pass, O(n).
 def twoSum(num, target):
     nums = dict()
@@ -19,10 +18,8 @@ def twoSum(num, target):
             return nums[target - n] + 1, i + 1
         nums[n] = i
 
-
 def main():
     num, target = [2, 7, 2, 11, 15], 4
     print twoSum(num, target)
-
 
 main()
