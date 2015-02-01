@@ -6,9 +6,7 @@
 # Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
 # Output: 7 -> 0 -> 8
 
-
 from LinkedList import ListNode, LinkedList
-
 
 # Method 1: Terminate after one traversal. O(n).
 def addTwoNumbers1(l1, l2, flag=0):
@@ -39,7 +37,6 @@ def addTwoNumbers1(l1, l2, flag=0):
     else:
         return ListNode(flag) if flag else None
 
-
 # Method 2: Iterative one pass.
 def addTwoNumbers2(l1, l2):
     head = ListNode(0)
@@ -58,12 +55,10 @@ def addTwoNumbers2(l1, l2):
             temp = temp.next
     return head
 
-
 def main():
     l1 = LinkedList([9, 9])
     l2 = LinkedList([1])
     print addTwoNumbers1(l1.head, l2.head)
     print addTwoNumbers2(l1.head, l2.head)
-
 
 main()

@@ -4,7 +4,6 @@
 # substring without repeating letters for "abcabcbb" is "abc", which the length is 3. For "bbbbb" the longest
 # substring is "b", with the length of 1.
 
-
 # Traverse the given string and keep tracking of the visited characters; O(n)
 def lengthOfLongestSubstring(s):
     length = longest = 0
@@ -19,10 +18,8 @@ def lengthOfLongestSubstring(s):
         visited[c] = i
     return max(longest, length)
 
-
 def main():
     s = 'wlrbbmqbhcdarzowkkyhiddqscdxrjmowfrxsjybldbefsarcbynecdyggxxpklorellnmpapqfwkhopkmco'
     print lengthOfLongestSubstring(s)
-
 
 main()
