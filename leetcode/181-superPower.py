@@ -3,9 +3,7 @@
 # Given a positive integer z, where 1 <= z <= 10^9, check if z can be written as p ^ q, where p and q are positive
 # integers greater than 1. If z can be written as p ^ q, return 1. Otherwise, return 0.
 
-
 import sys
-
 
 # Binary search.
 def superPower(z):
@@ -24,9 +22,7 @@ def superPower(z):
                 return 1
     return 0
 
-
 def main():
     print superPower(int(sys.argv[1]))
-
 
 main()
