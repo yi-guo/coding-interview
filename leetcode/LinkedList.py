@@ -1,7 +1,6 @@
 #!/usr/bin/python
 
-
-# Define Node
+# Define ListNode
 class ListNode:
 
     # To declare a linked list node, issue N = Node(1).
@@ -16,7 +15,6 @@ class ListNode:
             ret += ', %d' % temp.val
             temp = temp.next
         return ret + ']'
-
 
 # Define LinkedList
 class LinkedList:

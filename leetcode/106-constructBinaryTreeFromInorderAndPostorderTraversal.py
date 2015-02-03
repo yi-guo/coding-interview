@@ -4,7 +4,7 @@
 
 # Note: You may assume that duplicates do not exist in the tree.
 
-from Tree import Node, Tree
+from Tree import TreeNode
 
 # The last element in postorder is the root.
 # The root in inorder divides the list into halves, a.k.a., left and right.
@@ -14,7 +14,7 @@ def buildTree(inorder, postorder):
 
 def build(inorder, postorder, ip, ir, pp, pr):
     if ip > ir: return None
-    root = Node(postorder[pr])
+    root = TreeNode(postorder[pr])
     index = inorder.index(postorder[pr])
     root.left = build(inorder, postorder, ip, index - 1, pp, pp - ip + index - 1)
     root.right = build(inorder, postorder, index + 1, ir, pr - ir + index, pr - 1)

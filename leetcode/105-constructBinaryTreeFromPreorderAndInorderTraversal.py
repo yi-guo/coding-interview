@@ -4,7 +4,7 @@
 
 # Note: You may assume that duplicates do not exist in the tree.
 
-from Tree import Node, Tree
+from Tree import TreeNode
 
 # The first element in preorder is the root.
 # The root in inorder divides the list into halves, a.k.a., left and right.
@@ -14,7 +14,7 @@ def buildTree(preorder, inorder):
 
 def build(preorder, inorder, pp, pr, ip, ir):
     if pp > pr: return None
-    root = Node(preorder[pp])
+    root = TreeNode(preorder[pp])
     index = inorder.index(root.val)
     root.left = build(preorder, inorder, pp + 1, pp - ip + index, ip, index - 1)
     root.right = build(preorder, inorder, pr - ir + index + 1, pr, index + 1, ir)

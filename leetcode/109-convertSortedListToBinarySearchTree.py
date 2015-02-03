@@ -2,7 +2,7 @@
 
 # Given a singly linked list where elements are sorted in ascending order, convert it to a height balanced BST.
 
-from Tree import Node
+from Tree import TreeNode
 from LinkedList import LinkedList
 
 # Initialize curr to keep a pointer of the current position in the list.
@@ -30,7 +30,7 @@ def convert(size):
     # Recursively construct the left subtree of half size of the current tree.
     left = convert(size / 2)
     # Create the root for the current tree.
-    root = Node(curr.val)
+    root = TreeNode(curr.val)
     root.left = left
     # Move the pointer and recursively construct the right subtree.
     curr = curr.next
