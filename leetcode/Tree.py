@@ -17,10 +17,10 @@ class TreeNode:
     # Thank Steve Krenzel for coming up with this amazingly clear representation.
     def __repr__(self, depth=0):
         ret = str()
-        if not self.right:
+        if self.right:
             ret += self.right.__repr__(depth + 1)
         ret += ' ' * 4 * depth + str(self.val) + '\n'
-        if not self.left:
+        if self.left:
             ret += self.left.__repr__(depth + 1)
         return ret if depth else ret.rstrip()
 
