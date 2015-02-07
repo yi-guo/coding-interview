@@ -38,15 +38,6 @@ class Tree:
             if not root or root[0] == '#':
                 self.root = None
                 return
-            # Check if the given list is consistent.
-            for i in range(1, len(root)):
-                if root[i] == '#':
-                    if (i * 2 + 1 < len(root) and root[i * 2 + 1] != '#') or \
-                       (i * 2 + 2 < len(root) and root[i * 2 + 1] != '#'):
-                        self.root = None
-                        print 'Inconsistent List'
-                        return
-            # Level-order tree construction.
             self.root = TreeNode(root.pop(0))
             temp, queue = self.root, list()
             while temp:
