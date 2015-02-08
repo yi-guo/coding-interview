@@ -9,30 +9,29 @@ def setZeroes(matrix):
     m, n = len(matrix), len(matrix[0])
     # Check the first row and column.
     row = 0 in matrix[0]
-    column = 0 in [matrix[i][0] for i in range(m)]
+    col = 0 in [matrix[i][0] for i in xrange(m)]
     # For each (i,j) if matrix[i][j] = 0, set flag.
-    for i in range(m):
-        for j in range(n):
+    for i in xrange(m):
+        for j in xrange(n):
             if matrix[i][j] == 0:
-                matrix[i][0] = 0
-                matrix[0][j] = 0
+                matrix[i][0] = matrix[0][j] = 0
     # Zero rows.
-    for i in range(1, m):
+    for i in xrange(1, m):
         if matrix[i][0] == 0:
-            for j in range(1, n):
+            for j in xrange(1, n):
                 matrix[i][j] = 0
     # Zero columns.
-    for i in range(1, n):
+    for i in xrange(1, n):
         if matrix[0][i] == 0:
-            for j in range(1, m):
+            for j in xrange(1, m):
                 matrix[j][i] = 0
     # Zero the first row, if needed.
     if row:
-        for i in range(n):
+        for i in xrange(n):
             matrix[0][i] = 0
     # Zero the first column, if needed.
-    if column:
-        for i in range(m):
+    if col:
+        for i in xrange(m):
             matrix[i][0] = 0
 
 def main():
