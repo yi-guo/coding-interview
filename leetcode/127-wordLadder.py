@@ -19,25 +19,27 @@
 #   2. All words have the same length.
 #   3. All words contain only lowercase alphabetic characters.
 
+from collections import deque
+
 # Breath-first search all posible states until target is found.
 def ladderLength(start, end, dict):
-    if start == end: return 1
-    steps, queue, visited = 1, [start], set([start])
+    dict.add(end)
+    queue = deque()
+    queue.append(start)
+    length, visited = 1, {start}
     while queue:
-        steps = steps + 1
-        length = len(queue)
-        for i in range(length):
-            for j in range(len(queue[i])):
-                word = list(queue[i])
-                for k in map(chr, range(97, 123)):
-                    word[j] = k
-                    next = ''.join(word)
-                    if next == end:
-                        return steps
-                    if next in dict and next not in visited:
-                        queue.append(next)
-                        visited.add(next)
-        queue = queue[length:]
+        size = len(queue)
+        for i in xrange(size):
+            word = queue.popleft()
+            if word == end:
+                return length
+            for j in xrange(len(word)):
+                for k in xrange(97, 123):
+                    newWord = word[:j] + chr(k) + word[j + 1:]
+                    if newWord in dict and newWord not in visited:
+                        visited.add(newWord)
+                        queue.append(newWord)
+        length += 1
     return 0
 
 def main():
