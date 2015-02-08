@@ -21,33 +21,30 @@ class Interval:
 def insert(intervals, newInterval):
     if not intervals:
         return [newInterval]
-    # Insert directly to the front.
-    if newInterval.end < intervals[0].start:
-        intervals.insert(0, newInterval)
-        return intervals
-    # Insert directly at the end.
-    elif newInterval.start > intervals[len(intervals) - 1].end:
-        intervals.append(newInterval)
-        return intervals
     # Otherwise, start traversing.
     newIntervals, merged = list(), False
     for i, interval in enumerate(intervals):
         # Overlap found, continue merging until no overlap.
-        if not (newInterval.end < interval.start or newInterval.start > interval.end):
-            merged = True   # Indicating at least one merge has occurred.
+        if overlaps(interval, newInterval):
+            merged = True
             newInterval.start = min(interval.start, newInterval.start)
             newInterval.end = max(interval.end, newInterval.end)
-            continue
-        # Overlap stops and/or current interval is strictly greater than the one to be inserted.
-        elif merged or newInterval.start < interval.start:
-            newIntervals.append(newInterval)
-            newIntervals.extend(intervals[i:])
-            return newIntervals
-        # Append those intervals that are strictly smaller than the one to be inserted.
-        newIntervals.append(interval)
-    if not newIntervals or newIntervals[len(newIntervals) - 1] != newInterval:
-        newIntervals.append(newInterval)
+        else:
+            # Overlap stops and/or current interval is strictly greater than the one to be inserted.
+            if merged or newInterval.start < interval.start:
+                newIntervals.append(newInterval)
+                newIntervals.extend(intervals[i:])
+                return newIntervals
+            newIntervals.append(interval)
+    # Append those intervals that are strictly smaller than the one to be inserted.
+    newIntervals.append(newInterval)
     return newIntervals
+
+# Returns TRUE if two intervals overlap.
+def overlaps(i1, i2):
+    if i1.end < i2.start or i1.start > i2.end:
+        return False
+    return True
 
 def toString(intervals):
     output = list()
