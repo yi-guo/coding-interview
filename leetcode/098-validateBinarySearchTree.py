@@ -11,9 +11,6 @@
 def isValidBST(root, minimum=float('-inf'), maximum=float('inf')):
     if not root:
         return True
-    res = True
-    if root.left:
-        res = minimum < root.left.val < root.val and isValidBST(root.left, minimum, min(root.val, maximum))
-    if root.right:
-        res = res and root.val < root.right.val < maximum and isValidBST(root.right, max(root.val, minimum), maximum)
-    return res
+    if not (minimum < root.val < maximum):
+        return False
+    return isValidBST(root.left, minimum, root.val) and isValidBST(root.right, root.val, maximum)
