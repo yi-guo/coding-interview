@@ -20,17 +20,17 @@ def exist(board, word):
         return False
     if not word:
         return True
-    visited = [[False for i in range(len(board[0]))] for j in range(len(board))]
+    visited = [[False for _ in xrange(len(board[0]))] for _ in xrange(len(board))]
     for i in range(len(board)):
         for j in range(len(board[0])):
-            if found(board, word, 0, visited, i, j):
+            if found(board, word, visited, i, j, 0):
                 return True
     return False
 
 # Return true if word is found at board[i][j]
-def found(board, word, curr, visited, i, j):
+def found(board, word, visited, i, j, k):
     # Search is over, return true.
-    if curr >= len(word):
+    if k == len(word):
         return True
     # Out of boundary, return false.
     if i < 0 or j < 0 or i >= len(board) or j >= len(board[i]):
@@ -39,13 +39,13 @@ def found(board, word, curr, visited, i, j):
     if visited[i][j]:
         return False
     # Current cell does not have the needed character, thus false.
-    if board[i][j] != word[curr]:
+    if board[i][j] != word[k]:
         return False
     # Otherwise, presume good so far.
     # Mark the current cell as used and recursively search adjacent cells.
     visited[i][j] = True
-    search = found(board, word, curr + 1, visited, i - 1, j) or found(board, word, curr + 1, visited, i + 1, j) or \
-             found(board, word, curr + 1, visited, i, j + 1) or found(board, word, curr + 1, visited, i, j - 1)
+    search = found(board, word, visited, i - 1, j, k + 1) or found(board, word, visited, i + 1, j, k + 1) or \
+             found(board, word, visited, i, j + 1, k + 1) or found(board, word, visited, i, j - 1, k + 1)
     # If any of the four adjacent cells presents true, then found!
     visited[i][j] = False
     return search

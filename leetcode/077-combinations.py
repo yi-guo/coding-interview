@@ -10,26 +10,20 @@
 #  [1,3],
 #  [1,4]]
 
+from collections import deque
+
 # BFS.
 def combine(n, k):
-    # If either n or k is 0 or smaller, or n < k, then nothing.
-    if n < 1 or k < 1 or n < k:
-        return [[]]
-    # If k is 1, then [[1], [2], ... , [n]]
-    elif k == 1:
-        return [[i] for i in range(1, n + 1)]
-    # If n = k, then [[1, 2, ... , n]]
-    elif n == k:
-        return [range(1, n + 1)]
-    # Otherwise, do BFS until all combinations have the length of k.
-    combinations = [[]]
+    if n < k or k == 0:
+        return list()
+    combinations = deque()
+    combinations.append([])
     while len(combinations[0]) < k:
-        curr = combinations.pop(0)
-        i = 0 if not curr else curr[len(curr) - 1]
-        while i < n:
-            combinations.append(curr + [i + 1])
-            i = i + 1
-    return combinations
+        curr = combinations.popleft()
+        start = 1 if not curr else curr[-1] + 1
+        for i in xrange(start, n + 1):
+            combinations.append(curr + [i])
+    return list(combinations)
 
 def main():
     print combine(4, 2)
