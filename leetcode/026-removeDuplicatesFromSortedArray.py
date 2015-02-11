@@ -13,19 +13,14 @@
 def removeDuplicates(A):
     if not A:
         return 0
-    elif len(A) < 2:
-        return len(A)
-    i = j = 0
-    prev, length = None, len(A)
-    while i < len(A):
-        if A[i] == prev:
-            length = length - 1
-        else:
-            prev = A[i]
-            A[i], A[j] = A[j], A[i]
+    i, j, prev = 1, 1, A[0]
+    while A[i - 1] != A[-1]:
+        while j < len(A) and A[j] == prev:
             j = j + 1
+        j = min(j, len(A) - 1)
+        prev = A[i] = A[j]
         i = i + 1
-    return length
+    return i
 
 def main():
     A = [1, 1, 2, 2, 2, 3, 4, 5, 5]
