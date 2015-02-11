@@ -16,32 +16,26 @@
 
 # A simple BFS solution.
 def combinationSum(candidates, target):
-    # Filter any candidate that is already greater or equal to (which is a solution) the target.
-    temp = list()
-    S, Q = [], [([], 0)]
-    for c in candidates:
-        if c < target:
-            temp.append(c)
-        elif c == target:
-            S.append([c])
-    # Sort the candidates to efficiently avoid duplicates.
-    candidates = sorted(temp)
-    # Start BFS
-    while Q:
-        head = Q.pop(0)
-        for c in candidates:
-            # No need to try candidate that is smaller than the largest in a possible solution.
-            if not head[0] or head[0][len(head[0]) - 1] <= c:
-                sum = head[1] + c
+    candidates.sort()
+    queue, indices = [[]], [0]
+    combinations, combinationsum = [], [0]
+    while queue:
+        size = len(queue)
+        for i in xrange(size):
+            for j in xrange(indices[i], len(candidates)):
+                sum = combinationsum[i] + candidates[j]
                 if sum < target:
-                    Q.append((head[0] + [c], sum))
+                    indices.append(j)
+                    combinationsum.append(sum)
+                    queue.append(queue[i] + [candidates[j]])
                 elif sum == target:
-                    head[0].append(c)
-                    S.append(head[0])
-                    break
+                    combinations.append(queue[i] + [candidates[j]])
                 else:
                     break
-    return S
+        queue = queue[size:]
+        indices = indices[size:]
+        combinationsum = combinationsum[size:]
+    return combinations
 
 def main():
     print combinationSum([2, 3, 6, 7], 7)
