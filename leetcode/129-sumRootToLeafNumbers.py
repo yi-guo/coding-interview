@@ -19,19 +19,13 @@
 from Tree import Tree
 
 # Get the list of numbers recursively from left and right subtrees and return the sum.
-def sumNumbers(root):
+def sumNumbers(root, num=0):
     if not root:
         return 0
-    return sum([int(''.join(n)) for n in pathSums(root)])
-    
-def pathSums(root):
-    if root.left and root.right:
-        return [[str(root.val)] + n for n in pathSums(root.left) + pathSums(root.right)]
-    if root.left:
-        return [[str(root.val)] + n for n in pathSums(root.left)]
-    if root.right:
-        return [[str(root.val)] + n for n in pathSums(root.right)]
-    return [[str(root.val)]]
+    num = num * 10 + root.val
+    if not root.left and not root.right:
+        return num
+    return sumNumbers(root.left, num) + sumNumbers(root.right, num)
 
 def main():
     tree = Tree([5, 3, 2, 7, 0, 6, '#', '#', '#', 0])
