@@ -7,7 +7,8 @@
 
 # You may assume that
 #   - Y is a leap year if and only if Y is divisible by 4.
-#   - A in ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+#   - A in ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August',
+#           'September', 'October', 'November', 'December']
 #   - B in [A, 'December']
 #   - W in ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 
