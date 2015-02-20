@@ -43,6 +43,6 @@ def numOfWholeWeeks(Y, A, B, W):
     return numOfDaysBetweenAB / 7
 
 def main():
-    print numOfWholeWeeks(2015, 'February', 'March', 'Thursday')
+    print numOfWholeWeeks(2016, 'March', 'April', 'Friday')
 
 main()
