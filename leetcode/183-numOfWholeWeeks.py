@@ -21,7 +21,7 @@ def numOfWholeWeeks(Y, A, B, W):
     # Look-up table that maps a month in string to its integer representation
     months = {'January': 1, 'February': 2, 'March': 3, 'April': 4, 'May': 5, 'June': 6,
               'July': 7, 'August': 8, 'September': 9, 'October': 10, 'November': 11, 'December': 12}
-    # Look-up table that maps a day in string its integer representation
+    # Look-up table that maps a day in string to its integer representation
     days = {'Monday': 1, 'Tuesday': 2, 'Wednesday': 3, 'Thursday': 4, 'Friday': 5, 'Saturday': 6, 'Sunday': 7}
     # Look-up table that gives the number of days in month i + 1 where 0 <= i <= 11.
     numOfDaysInMonth = [31, 28 if Y % 4 != 0 else 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
