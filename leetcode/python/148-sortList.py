@@ -2,7 +2,7 @@
 
 # Sort a linked list in O(nlog(n)) time using constant space complexity.
 
-from LinkedList import LinkedList
+from leetcode.python import LinkedList
 
 # Merge sort. Two pointers to partition the list recursively and merge. O(nlog(n)).
 def sortList(head):

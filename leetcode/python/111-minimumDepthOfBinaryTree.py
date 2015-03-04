@@ -4,7 +4,7 @@
 
 # The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.
 
-from Tree import Tree
+from leetcode.python import Tree
 
 # Level order traversal with depth incremented upon each level.
 # Return depth immediately when a leaf node occurs.

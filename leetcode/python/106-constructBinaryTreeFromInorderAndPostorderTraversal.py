@@ -4,7 +4,7 @@
 
 # Note: You may assume that duplicates do not exist in the tree.
 
-from Tree import TreeNode
+from leetcode.python.Tree import TreeNode
 
 # The last element in postorder is the root.
 # The root in inorder divides the list into halves, a.k.a., left and right.

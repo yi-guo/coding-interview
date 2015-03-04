@@ -12,7 +12,8 @@
 
 # Note: Recursive solution is trivial, could you do it iteratively?
 
-from Tree import Tree
+from leetcode.python import Tree
+
 
 def preorderTraversal(root):
     tree = list()

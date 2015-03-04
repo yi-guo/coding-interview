@@ -6,7 +6,7 @@
 
 # Note: A solution using O(n) space is pretty straight forward. Could you devise a constant space solution?
 
-from Tree import TreeNode
+from leetcode.python.Tree import TreeNode
 
 # In-order traversal and trace the violation of the increasing order.
 class Solution:

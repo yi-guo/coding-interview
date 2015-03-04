@@ -12,7 +12,8 @@
 #        7    2  5   1
 # return [[5, 4, 11, 2], [5, 8, 4, 5]]
 
-from Tree import Tree
+from leetcode.python import Tree
+
 
 def pathSum(root, sum):
     if not root:

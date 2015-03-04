@@ -16,7 +16,7 @@
 
 # Return the sum = 12 + 13 = 25.
 
-from Tree import Tree
+from leetcode.python import Tree
 
 # Get the list of numbers recursively from left and right subtrees and return the sum.
 def sumNumbers(root, num=0):

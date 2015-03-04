@@ -6,7 +6,10 @@
 
 
 import heapq
-from LinkedList import ListNode, LinkedList
+
+from leetcode.python.LinkedList import ListNode
+from leetcode.python import LinkedList
+
 
 
 # Divide and conquer. T(n) = 2T(n/2) + O(m), thus O(mn).

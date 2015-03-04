@@ -12,7 +12,7 @@
 #   for k = 2, you should return: 2 -> 1 -> 4 -> 3 -> 5
 #   for k = 3, you should return: 3 -> 2 -> 1 -> 4 -> 5
 
-from LinkedList import LinkedList
+from leetcode.python import LinkedList
 
 # Reverse every k nodes recursively. Each node is accessed once, thus O(n).
 def reverseKGroup(head, k):

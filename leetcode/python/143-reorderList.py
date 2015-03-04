@@ -6,7 +6,7 @@
 
 # For example, given [1, 2, 3, 4], reorder it to [1, 4, 2, 3].
 
-from LinkedList import LinkedList
+from leetcode.python import LinkedList
 
 # 1. Divide the list into halves.
 # 2. Reverse the second half.

@@ -10,7 +10,7 @@
 #     2   3
 # return 6.
 
-from Tree import Tree
+from leetcode.python import Tree
 
 # Recursively compute the maximum path sum for the subtrees.
 # Maximum path sum occurs in the following four cases only:

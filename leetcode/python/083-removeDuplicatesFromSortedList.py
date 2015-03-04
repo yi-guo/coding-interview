@@ -6,7 +6,7 @@
 # Given 1 -> 1 -> 2, return 1 -> 2.
 # Given 1 -> 1 -> 2 -> 3 -> 3, return 1 -> 2 -> 3.
 
-from LinkedList import LinkedList
+from leetcode.python import LinkedList
 
 # Traverse the list and manipulate the pointer to avoid duplicates. One pass, thus O(n).
 def deleteDuplicates(head):

@@ -6,7 +6,8 @@
 
 # For example, given 1 -> 4 -> 3 -> 2 -> 5 -> 2 and x = 3, return 1 -> 2 -> 2 -> 4 -> 3 -> 5.
 
-from LinkedList import ListNode, LinkedList
+from leetcode.python.LinkedList import ListNode
+from leetcode.python import LinkedList
 
 # Two dummy nodes. One pass. O(n) in time and O(1) in space.
 def partition(head, x):

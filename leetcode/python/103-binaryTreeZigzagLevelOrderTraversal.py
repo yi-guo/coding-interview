@@ -11,7 +11,7 @@
 #   15   7
 # return its zigzag level order traversal as [[3], [20, 9], [15, 7]].
 
-from Tree import Tree
+from leetcode.python import Tree
 
 # Level order traversal with flag controling the insertion position of each level.
 def zigzagLevelOrder(root):

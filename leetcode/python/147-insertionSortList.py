@@ -2,7 +2,8 @@
 
 # Sort a linked list using insertion sort.
 
-from LinkedList import LinkedList
+from leetcode.python import LinkedList
+
 
 def insertionSortList(head):
     if not head: return head

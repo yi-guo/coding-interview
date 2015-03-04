@@ -7,7 +7,8 @@
 # Your algorithm should use only constant space. You may not modify the values in the list.
 # Only nodes itself can be changed.
 
-from LinkedList import ListNode, LinkedList
+from leetcode.python.LinkedList import ListNode
+from leetcode.python import LinkedList
 
 # Recursively traverse to the end of the list and start swapping backward.
 # T(n) = T(n-2) + O(1), thus O(n).
