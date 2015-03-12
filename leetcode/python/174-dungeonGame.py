@@ -21,7 +21,6 @@
 # -5	 -10    1
 # 10      30   -5 (P)
 
-
 # Notes:
 # The knight's health has no upper bound.
 # Any room can contain threats or power-ups, even the first room the knight enters and the bottom-right room

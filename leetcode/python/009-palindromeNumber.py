@@ -2,7 +2,6 @@
 
 # Determine whether an integer is a palindrome. Do this without extra space.
 
-
 def isPalindrome(x):
     if x < 0:
         return False
@@ -18,9 +17,7 @@ def isPalindrome(x):
         div /= 100
     return True
 
-
 def main():
     print isPalindrome(1000021)
-
 
 main()

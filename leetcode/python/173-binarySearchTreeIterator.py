@@ -6,7 +6,7 @@
 
 # Note: next() and hasNext() should run in average O(1) time and uses O(h) memory, where h is the height of the tree.
 
-from leetcode.python import Tree
+from Tree import Tree
 
 # Iterative in-order traversal.
 class BSTIterator:

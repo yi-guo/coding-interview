@@ -11,7 +11,7 @@
 #   15   7
 # return its bottom-up level order traversal as [[15, 7], [9, 20], [3]]
 
-from leetcode.python import Tree
+from Tree import Tree
 
 # Same approach as "Binary Tree Level Order Traversal", with front insertion of each level.
 def levelOrderBottom(root):

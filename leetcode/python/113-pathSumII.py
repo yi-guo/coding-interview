@@ -12,7 +12,7 @@
 #        7    2  5   1
 # return [[5, 4, 11, 2], [5, 8, 4, 5]]
 
-from leetcode.python import Tree
+from Tree import Tree
 
 
 def pathSum(root, sum):

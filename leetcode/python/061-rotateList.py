@@ -4,7 +4,7 @@
 
 # For example, given 1 -> 2 -> 3 -> 4 -> 5 -> NULL and k = 2, return 4 -> 5 -> 1 -> 2 -> 3 -> NULL.
 
-from leetcode.python import LinkedList
+from LinkedList import LinkedList
 
 # Two pointers with the seconding one moving when the leading one is k nodes ahead.
 def rotateRight(head, k):

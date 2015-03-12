@@ -7,7 +7,7 @@
 # Given 1 -> 2 -> 3 -> 3 -> 4 -> 4 -> 5, return 1 -> 2 -> 5.
 # Given 1 -> 1 -> 1 -> 2 -> 3, return 2 -> 3.
 
-from leetcode.python import LinkedList
+from LinkedList import LinkedList
 
 # Modified from "Remove Duplicates from Sorted List". Still one pass, thus O(n).
 def deleteDuplicates(head):

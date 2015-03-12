@@ -21,7 +21,7 @@
 #            \
 #             6
 
-from leetcode.python import Tree
+from Tree import Tree
 
 # Flatten the left and right trees recursively and then manipulate the pointers for the current node.
 def flatten(root, depth=0):

@@ -10,7 +10,7 @@
 #   15   7
 # return its level order traversal as [[3], [9, 20], [15, 7]].
 
-from leetcode.python import Tree
+from Tree import Tree
 
 # Use queue to conduct level-order traversal. One pass, thus O(n).
 def levelOrder(root):

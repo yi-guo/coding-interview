@@ -6,8 +6,7 @@
 # Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
 # Output: 7 -> 0 -> 8
 
-from leetcode.python.LinkedList import ListNode
-from leetcode.python import LinkedList
+from LinkedList import ListNode
 
 # Method 1: Terminate after one traversal. O(n).
 def addTwoNumbers1(l1, l2, flag=0):

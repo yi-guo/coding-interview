@@ -12,7 +12,7 @@
 #        7    2      1
 # return true, as there exist a root-to-leaf path 5->4->11->2 which sum is 22.
 
-from leetcode.python import Tree
+from Tree import Tree
 
 # Recursively check if any of the subtrees has sum of sum - root.val
 def hasPathSum(root, sum):

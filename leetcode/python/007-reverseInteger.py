@@ -7,7 +7,6 @@
 
 # For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.
 
-
 # Convert the integer into a list of digits and reverse
 def reverse(x):
     neg = -1 if x < 0 else 1
@@ -21,10 +20,8 @@ def reverse(x):
         return 0
     return num
 
-
 def main():
     x = 100003
     print reverse(x)
-
 
 main()

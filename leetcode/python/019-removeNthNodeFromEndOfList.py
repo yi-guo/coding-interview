@@ -7,7 +7,7 @@
 
 # Note: Given n will always be valid, try to do this in one pass.
 
-from leetcode.python import LinkedList
+from LinkedList import LinkedList
 
 # Two points move ahead. The second one starts moving when the first one is at the nth position. O(n).
 def removeNthFromEnd(head, n):

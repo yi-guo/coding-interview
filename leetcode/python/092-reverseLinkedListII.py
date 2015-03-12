@@ -6,7 +6,7 @@
 
 # Note: m, n satisfy the following condition: 1 <= m <= n <= length of list.
 
-from leetcode.python import LinkedList
+from LinkedList import LinkedList
 
 # A recursive approach. Strictly one pass, thus O(n).
 def reverseBetween(head, m, n):

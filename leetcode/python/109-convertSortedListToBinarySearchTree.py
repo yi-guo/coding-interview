@@ -3,7 +3,7 @@
 # Given a singly linked list where elements are sorted in ascending order, convert it to a height balanced BST.
 
 from leetcode.python.Tree import TreeNode
-from leetcode.python import LinkedList
+from LinkedList import LinkedList
 
 # Initialize curr to keep a pointer of the current position in the list.
 curr = None

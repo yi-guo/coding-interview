@@ -8,7 +8,7 @@
 import heapq
 
 from leetcode.python.LinkedList import ListNode
-from leetcode.python import LinkedList
+from LinkedList import LinkedList
 
 
 
