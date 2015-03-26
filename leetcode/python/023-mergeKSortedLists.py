@@ -4,13 +4,9 @@
 
 # Analyze and describe its complexity.
 
-
 import heapq
 
-from leetcode.python.LinkedList import ListNode
-from LinkedList import LinkedList
-
-
+from LinkedList import ListNode, LinkedList
 
 # Divide and conquer. T(n) = 2T(n/2) + O(m), thus O(mn).
 def mergeKLists1(lists):
@@ -38,7 +34,6 @@ def mergeKLists1(lists):
         length = len(lists) / 2
         return mergeKLists1([mergeKLists1(lists[:length]), mergeKLists1(lists[length:])])
 
-
 # Priority queue.
 def mergeKLists2(lists):
     head = temp = ListNode(0)
@@ -51,9 +46,7 @@ def mergeKLists2(lists):
             heapq.heappush(lists, (temp.next.val, temp.next))
     return head.next
 
-
 def main():
     print mergeKLists2([LinkedList([1, 2, 2]).head, LinkedList([1, 1, 2]).head])
-
 
 main()

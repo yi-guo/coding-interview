@@ -8,7 +8,7 @@
 # Minimum window is "BANC".
 
 # Note:
-# 1. If there is no such window in S that covers all characters in T, return the emtpy string "".
+# 1. If there is no such window in S that covers all characters in T, return the empty string "".
 # 2. If there are multiple such windows, you are guaranteed that there will always be only one unique minimum window in S.
 
 # Two pointers with a hashmap keeping track of how many chars in T have been found in S. One pass, thus O(n).
