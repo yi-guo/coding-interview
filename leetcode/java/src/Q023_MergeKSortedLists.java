@@ -3,7 +3,12 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
-public class MergeKLists {
+public class Q023_MergeKSortedLists {
+
+    /**
+     * Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
+     *
+     */
 
 	public static void main(String[] args) {
 		List<ListNode> lists = new ArrayList<ListNode>();
@@ -12,7 +17,9 @@ public class MergeKLists {
 		lists.add(new LinkedList(new int[] {5, 7, 8, 9, 10, 13, 15}).head);
 		System.out.println(mergeKLists(lists));
 	}
-	
+
+    // Use priority queue to extract the node containing the next smallest value.
+    // O(n log(k)) complexity in time where n is the total number of nodes and O(k) in space.
 	public static ListNode mergeKLists(List<ListNode> lists) {
 		if (lists ==  null || lists.size() < 1)
 			return null;
