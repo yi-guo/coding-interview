@@ -1,5 +1,13 @@
-public class MergeTwoSortedLists {
+public class Q021_MergeTwoSortedLists {
 
+    /**
+     * Merge two sorted linked lists and return it as a new list.
+     * The new list should be made by splicing together the nodes of the first two lists.
+     *
+     */
+
+    // Two pointers for the two lists. Compare while moving forward.
+    // O(n) complexity in time and O(1) in space.
 	public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
 		ListNode head = new ListNode(0), temp = head;
 		while (l1 != null && l2 != null) {
