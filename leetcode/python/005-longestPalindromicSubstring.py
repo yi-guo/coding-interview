@@ -24,7 +24,6 @@ def longestPalindrom(s, l, r):
         r = r + 1
     return s[l + 1 : r]
 
-
 def main():
    s = "12343343321"
    print longestPalindromicSubstring(s)

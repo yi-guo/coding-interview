@@ -2,7 +2,7 @@
 
 # Given an array where elements are sorted in ascending order, convert it to a height balanced BST.
 
-from leetcode.python.Tree import TreeNode
+from Tree import TreeNode
 
 # Select the median as the root and recursively build the tree.
 def sortedArrayToBST(num):

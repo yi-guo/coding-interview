@@ -3,7 +3,7 @@
 # Merge two sorted linked lists and return it as a new list.
 # The new list should be made by splicing together the nodes of the first two lists.
 
-from leetcode.python.LinkedList import ListNode
+from LinkedList import ListNode
 
 # A straight forward solution that compares while moving forward. O(n)
 def mergeTwoLists(l1, l2):

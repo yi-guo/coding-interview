@@ -4,7 +4,7 @@
 
 # Note: You may assume that duplicates do not exist in the tree.
 
-from leetcode.python.Tree import TreeNode
+from Tree import TreeNode
 
 # The first element in preorder is the root.
 # The root in inorder divides the list into halves, a.k.a., left and right.

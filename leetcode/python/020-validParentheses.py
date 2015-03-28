@@ -6,7 +6,6 @@
 # The brackets must close in the correct order. "()" and "()[]{}" are all valid,
 # but "(]" and "([)]" are not.
 
-
 # Use stack to check validity, thus O(n).
 def isValid(s):
     stack = list()
