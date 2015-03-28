@@ -1,5 +1,7 @@
 #!/usr/bin/python
 
+# Source: Peng Li
+
 # Given a matrix of 0's and 1's, find the largest area formed by consecutive 1's in the matrix.
 
 def maxArea(matrix):

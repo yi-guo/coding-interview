@@ -1,5 +1,7 @@
 #!/usr/bin/python
 
+# Source: Zappos.com Online Assessment
+
 # An integer whose base-twn representation consists only of zero and one is called "zero-one".
 
 # Given an arbitrary integer n, which 0 < n < 100,000. find the smallest positive "zero-one" integer s which is the

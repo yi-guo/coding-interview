@@ -1,6 +1,8 @@
 public class DateOfWeekday {
 
     /**
+     * Source: VMWare Online Assessment
+     *
      * Write a function that, given a date and a weekday, returns the date of that weekday relative to the given date.
      *
      * A date is an integer, being the number of days since January 1, 1984 (a Sunday).

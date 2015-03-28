@@ -3,6 +3,8 @@ import java.util.HashSet;
 public class RemoveDuplicateEntries {
 
     /**
+     * Source: VMWare Online Assessment
+     *
      * Given a singly linked list, write a function to remove all duplicate entries in place. The returned linked list
      * should maintain ordering such that only the duplicates of a previous node are removed.
      */

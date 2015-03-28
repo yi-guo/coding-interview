@@ -1,6 +1,8 @@
 public class CoinTossBetting {
 
     /**
+     * Source: VMWare Online Assessment
+     *
      * You are writing a coin toss game which bets on Heads.
      *
      * For each round, you will get a fixed amount to bet. You start by betting 1. On a win (Heads), you double

@@ -5,6 +5,8 @@ import java.util.LinkedList;
 public class PossibleScores {
 
     /**
+     * Source: VMWare Online Assessment
+     *
      * There is a game where it is possible to score in different increments. Given an array input of these increments
      * (constrained from 1 to 1,000,000 inclusively) and a target score, return an integer indicating whether it is or
      * is not possible to achieve the target score utilizing a combination of multiples of the available increments.

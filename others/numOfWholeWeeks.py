@@ -1,5 +1,7 @@
 #!/usr/bin/python
 
+# Source: Magnitude Capital Online Assessment
+
 # You are given a year Y and two months A and B, where Y is an integer and A and B are strings.
 # You are also given a day W indicating the day of the first day of year Y.
 # Write a program to calculate the number of whole weeks inclusively from the first day of A to the last day of B,

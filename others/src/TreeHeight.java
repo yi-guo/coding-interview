@@ -3,6 +3,8 @@ import java.util.Stack;
 public class TreeHeight {
 
     /**
+     * Source: VMWare Online Assessment
+     *
      * Given the preorder traversal of a binary tree, write a function that returns the height of the tree.
      *
      * For exmaple, given a binary tree
